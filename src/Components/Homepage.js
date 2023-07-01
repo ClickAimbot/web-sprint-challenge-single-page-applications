@@ -1,5 +1,4 @@
-import { useNavigate, Routes, Route, Link } from 'react-router-dom'
-import Pizza from './Pizza'
+import { useNavigate } from 'react-router-dom';
 
 export default function Home () {
     const navigate = useNavigate()
@@ -12,10 +11,7 @@ export default function Home () {
             <h1>Who wants pizza with their coding?</h1>
             <button onClick={routeToForm} classname='form-button'>
                 Pizza?
-            </button>
-            <Routes>
-                <Route path="pizza" element={<Pizza />} />
-            </Routes>
+            </button>           
         </div>
     )
 }
