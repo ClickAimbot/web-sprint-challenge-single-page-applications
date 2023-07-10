@@ -1,4 +1,4 @@
-import React, { useState, useEfect } from "react";
+import React, { useState, useEffect } from "react";
 import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import Home from './Components/Homepage';
@@ -18,7 +18,8 @@ const initialFormErrors = {
   name: "",
   size: "",
   sauce: "",
-  topping: ""
+  topping: "",
+  specialty: ""
 }
 
 const App = () => {
@@ -26,10 +27,10 @@ const App = () => {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [users, setUsers] = useState([]);
 
-  const handleSubmit = () => {
+  const onSubmit = () => {
     axios.post("https://reqres.in/api/orders", formValues)
     .then(res => {
-      setUsers([ res.data, ...users])
+      setUsers([ res.data, ...users ])
     })
     .catch(err => console.error(err))
     .finally(() => setFormValues(initialFormValues))
@@ -41,7 +42,7 @@ const App = () => {
       .then(() => setFormErrors({ ...formErrors, [name]: ''}))
       .catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0] }))
   }
-  const handleChange = (name, value) => {
+  const onChange = (name, value) => {
     validate(name, value)
     setFormValues({ ...formValues, [name]: value})
   }
@@ -57,7 +58,7 @@ const App = () => {
         </nav>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="pizza" element={<Pizzaform values={formValues} change={handleChange} errors={formErrors} submit={handleSubmit} />} />
+          <Route path="pizza" element={<Pizzaform values={formValues} change={onChange} errors={formErrors} submit={onSubmit} />} />
         </Routes>
       </div>
   );

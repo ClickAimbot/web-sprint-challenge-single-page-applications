@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Form.css';
 
 const Pizzaform = (props) => {
-    const { submit, change } = props;
-    const { name, topping } = props.values
+    const { submit, errors, change } = props;
+    const { name, substitute, topping, sauce} = props.values
     
     const onChange = (e) => {
         const { name, value, type, checked } = e.target;
+        const newVal = type === 'checkbox' ? checked : value;
+        change(name, newVal);
     }
 
     const onSubmit = (e) => {
@@ -17,9 +19,10 @@ const Pizzaform = (props) => {
     return (
         <div className="container" id="pizza-form">
             <form onSubmit={onSubmit}>
+                <p>{errors.name}</p>
                 <label id="name-input"> Name
                     <input 
-                        placeholder="Input Name"
+                        placeholder="Input Name Here!"
                         type="text"
                         name="name"
                         value={name}
@@ -38,24 +41,24 @@ const Pizzaform = (props) => {
                 </label>
                 <label> 
                     <h3>Choice of Sauce</h3>
-                    <input type="radio" name="Sauce" value="Red Sauce" />
+                    <input type="radio" name="Sauce" value={sauce} />
                     <label>Red Sauce</label>
-                    <input type="radio" name="Sauce" value="Pesto Sauce" />
+                    <input type="radio" name="Sauce" value={sauce} />
                     <label>Pesto Sauce</label>
-                    <input type="radio" name="Sauce" value="Garlic Red Sauce" />
+                    <input type="radio" name="Sauce" value={sauce} />
                     <label>Garlic Red Sauce</label>
                 </label>
                 <label>
                     <h3>Toppings</h3>
-                    <input type="checkbox" id="1" name='topping' value='Pepperoni' checked={topping} />
+                    <input type="checkbox" name='topping' value='Pepperoni' checked={topping} />
                     <label>Pepperoni</label> 
-                    <input type="checkbox" id="2" name='topping' value='Chicken' checked={topping} />
+                    <input type="checkbox" name='topping' value='Chicken' checked={topping} />
                     <label>Chicken</label>
-                    <input type="checkbox" id="3" name='topping' value='Bacon' checked={topping} />
+                    <input type="checkbox" name='topping' value='Bacon' checked={topping} />
                     <label>Bacon</label>
-                    <input type="checkbox" id="4" name='topping' value='Onions' checked={topping} />
+                    <input type="checkbox" name='topping' value='Onions' checked={topping} />
                     <label>Onions</label>
-                    <input type="checkbox" id="5" name="topping" value='BellPeppers' checked={topping} />
+                    <input type="checkbox" name="topping" value='BellPeppers' checked={topping} />
                     <label>BellPeppers</label>
                 </label>
                 <label>
@@ -63,6 +66,7 @@ const Pizzaform = (props) => {
                     <input 
                         type='radio'
                         name='substitute'
+                        value={substitute}
                     />
                 </label>
                 <label id="special-text"> 
@@ -80,7 +84,6 @@ const Pizzaform = (props) => {
                         <input 
                             type="submit"
                             value="Add to order"
-                            onSubmit={onSubmit}
                         />
                     </label>
                 </footer>
