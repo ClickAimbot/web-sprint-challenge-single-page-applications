@@ -8,14 +8,18 @@ import * as yup from 'yup';
 import axios from 'axios';
 
 const initialFormValues = {
-  name: "",
+  username: "",
   size: "",
   sauce: "",
-  topping: false,
-  specialty: false
+  topping1: false,
+  topping2: false,
+  topping3: false,
+  topping4: false,
+  topping5: false,
+  specialty: ""
 }
 const initialFormErrors = {
-  name: "",
+  username: "",
   size: "",
   sauce: "",
   topping: "",
@@ -28,6 +32,7 @@ const App = () => {
   const [users, setUsers] = useState([]);
 
   const onSubmit = () => {
+    console.log(formValues)
     axios.post("https://reqres.in/api/orders", formValues)
     .then(res => {
       setUsers([ res.data, ...users ])

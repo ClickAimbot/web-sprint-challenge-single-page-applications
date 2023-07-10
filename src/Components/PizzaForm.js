@@ -20,8 +20,8 @@ const Pizzaform = (props) => {
         <div className="container" id="pizza-form">
             <form onSubmit={onSubmit}>
                 <p>{errors.username}</p>
-                <label id="name-input"> Name
-                    <input 
+                <label> Name
+                    <input id="name-input"
                         placeholder="Input Name Here!"
                         type="text"
                         name="username"
@@ -50,15 +50,15 @@ const Pizzaform = (props) => {
                 </label>
                 <label>
                     <h3>Toppings</h3>
-                    <input type="checkbox" name='topping' value='Pepperoni' checked={topping} />
+                    <input type="checkbox" name='topping1' value='Pepperoni' checked={topping} onChange={onChange} />
                     <label>Pepperoni</label> 
-                    <input type="checkbox" name='topping' value='Chicken' checked={topping} />
+                    <input type="checkbox" name='topping2' value='Chicken' checked={topping} onChange={onChange} />
                     <label>Chicken</label>
-                    <input type="checkbox" name='topping' value='Bacon' checked={topping} />
+                    <input type="checkbox" name='topping3' value='Bacon' checked={topping} onChange={onChange} />
                     <label>Bacon</label>
-                    <input type="checkbox" name='topping' value='Onions' checked={topping} />
+                    <input type="checkbox" name='topping4' value='Onions' checked={topping} onChange={onChange} />
                     <label>Onions</label>
-                    <input type="checkbox" name="topping" value='BellPeppers' checked={topping} />
+                    <input type="checkbox" name="topping5" value='BellPeppers' checked={topping} onChange={onChange} />
                     <label>BellPeppers</label>
                 </label>
                 <label>
@@ -82,6 +82,7 @@ const Pizzaform = (props) => {
                     <label> 
                         <h3>Ready to eat?</h3>
                         <input 
+                            id="order-button"
                             type="submit"
                             value="Add to order"
                         />

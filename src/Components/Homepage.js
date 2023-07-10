@@ -7,9 +7,9 @@ export default function Home () {
     }
 
     return (
-        <div className='home-wrapper' id='order-pizza'>
+        <div className='home-wrapper'>
             <h1>Who wants pizza with their coding?</h1>
-            <button onClick={routeToForm} classname='form-button'>
+            <button onClick={routeToForm} id='order-pizza' classname='form-button'>
                 Pizza?
             </button>           
         </div>
