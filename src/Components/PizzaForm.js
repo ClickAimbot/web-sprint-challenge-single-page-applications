@@ -3,7 +3,7 @@ import './Form.css';
 
 const Pizzaform = (props) => {
     const { submit, errors, change } = props;
-    const { name, substitute, topping, sauce} = props.values
+    const { username, substitute, topping, sauce} = props.values
     
     const onChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -19,13 +19,13 @@ const Pizzaform = (props) => {
     return (
         <div className="container" id="pizza-form">
             <form onSubmit={onSubmit}>
-                <p>{errors.name}</p>
+                <p>{errors.username}</p>
                 <label id="name-input"> Name
                     <input 
                         placeholder="Input Name Here!"
                         type="text"
-                        name="name"
-                        value={name}
+                        name="username"
+                        value={username}
                         onChange={onChange}
                     />
                 </label>
