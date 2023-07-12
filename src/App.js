@@ -16,14 +16,14 @@ const initialFormValues = {
   topping3: false,
   topping4: false,
   topping5: false,
-  specialty: ""
+  special: ""
 }
 const initialFormErrors = {
   username: "",
   size: "",
   sauce: "",
   topping: "",
-  specialty: ""
+  special: ""
 }
 
 const App = () => {

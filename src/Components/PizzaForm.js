@@ -29,10 +29,10 @@ const Pizzaform = (props) => {
                         onChange={onChange}
                     />
                 </label>
-                <label id="size-dropdown" for='size-select'>
+                <label for='size-select'>
                     <h3>Choice of Size</h3>
                     <p>Required</p>
-                    <select name='size' id='size-select'>
+                    <select name='size' id='size-dropdown' onChange={onChange}>
                         <option value="">--Please Choose an Option--</option>
                         <option value="small">Small</option>
                         <option value="medium">Medium</option>
@@ -41,11 +41,11 @@ const Pizzaform = (props) => {
                 </label>
                 <label> 
                     <h3>Choice of Sauce</h3>
-                    <input type="radio" name="Sauce" value={sauce} />
+                    <input type="radio" name="Sauce" value={sauce} onChange={onChange} />
                     <label>Red Sauce</label>
-                    <input type="radio" name="Sauce" value={sauce} />
+                    <input type="radio" name="Sauce" value={sauce} onChange={onChange} />
                     <label>Pesto Sauce</label>
-                    <input type="radio" name="Sauce" value={sauce} />
+                    <input type="radio" name="Sauce" value={sauce} onChange={onChange} />
                     <label>Garlic Red Sauce</label>
                 </label>
                 <label>
@@ -67,6 +67,7 @@ const Pizzaform = (props) => {
                         type='radio'
                         name='substitute'
                         value={substitute}
+                        onChange={onChange}
                     />
                 </label>
                 <label id="special-text"> 
@@ -75,7 +76,8 @@ const Pizzaform = (props) => {
                         id='container-special'
                         placeholder="Anything else you'd like to add?"
                         type='text'
-                        name="Special"
+                        name="special"
+                        onChange={onChange}
                     />
                 </label>
                 <footer>
